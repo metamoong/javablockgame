@@ -55,7 +55,7 @@ public class NewRound{
 				for(int j=0;j<2*round+1;j++) {
 					int random = (int)(Math.random()*4);
 					if(random == 1) {objs.add(new SpecialBlock(block_x,block_y,block_width,block_height,Color.pink));}
-					else{objs.add(new Block(block_x,block_y,block_width,block_height,Color.cyan));}
+					else{objs.add(new Block(block_x,block_y,block_width,block_height,new Color(123,142,169)));}
 					block_x +=block_width;
 				}
 				block_y+=block_height;

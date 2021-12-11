@@ -1,10 +1,8 @@
 package homework5;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javax.swing.JPanel;
@@ -14,7 +12,7 @@ class BreakingBlocks extends JPanel implements Runnable, KeyListener{
 	NewRound game;
 	Sound sound;
 	
-	final float dtime = 1/30.0f;
+	final float dtime = 1/40.0f;
 	int round;
 	int score;
 	
@@ -26,7 +24,7 @@ class BreakingBlocks extends JPanel implements Runnable, KeyListener{
 		sound = new Sound();
 		fr = _fr;
 		round = 1;
-		game = new NewRound(1,round);//첫 게임
+		game = new NewRound(round,0);//첫 게임
 		
 		Thread t = new Thread(this);
 		t.start();

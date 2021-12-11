@@ -10,22 +10,19 @@ class Ball extends GameObject{
 	float r;
 	Color color;
 	
-	
 	Ball(float _x, float _y){
 		x = _x;
 		y = _y;
 		
-		float speed = 300;
-		float angle = (float)(Math.random()*360) * 3.141592f / 180.0f;
+		//float angle = (float)(Math.random()*360) * 3.141592f / 180.0f;
 		vx = 50;
 		vy =-300;
 		//vx = (float) (speed*Math.cos(angle));
 		//vy = (float) (speed*Math.sin(angle));
-		r = 5;
+		r = 7;
 		prev_x = x;
 		prev_y = y;
-		color = Color.red;
-		
+		color = new Color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
 	}
 	
 	
@@ -45,7 +42,6 @@ class Ball extends GameObject{
 	void collisionResolution(GameObject in) {
 		Block b = (Block) in;
 		if(b.isCollide(this)==false) return;
-		
 
 		else {
 			if(prev_y + r < b.y ) {y = b.y-r; vy = -vy;}; 
@@ -53,6 +49,7 @@ class Ball extends GameObject{
 			if(prev_x + r <b.x) { x = b.x - r; vx = -vx;};
 			if(prev_x -r >b.x + b.w) { x= b.x +b.w +r; vx=-vx;}
 		}
+		
 		if(b instanceof RacketBlock) {
 			if(x<b.x+b.w/3) {
 				if(vx>0) {

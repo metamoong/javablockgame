@@ -1,7 +1,6 @@
 package homework5;
 
 import java.awt.Color;
-import java.awt.Graphics;
 
 class RacketBlock extends Block{
 	int screen_width;
@@ -10,7 +9,7 @@ class RacketBlock extends Block{
 	float max;
 	
 	RacketBlock(int width,int height){
-		super(width/2f-width/5/2 , 0.8f*height, width/5f,30f,Color.black);
+		super(width/2f-width/5/2 , 0.8f*height, width/5f,30f,Color.gray);
 		screen_width = width;
 	}
 	

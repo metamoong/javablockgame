@@ -1,4 +1,6 @@
 package homework5;
+import java.awt.Color;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -13,7 +15,8 @@ public class HW5 extends JFrame{
 	int score;
 	int max_score;
 	
-	
+	Sound sound;
+
 	HW5(){
 		setSize(700,700);
 		
@@ -21,11 +24,14 @@ public class HW5 extends JFrame{
 		setTitle("Homework5 Practice");
 		
 		state = 0;
+		score = 0;
 		
 		start_page = new StartPage(this);
 		add(start_page);
-	
-		//add(new BreakingBlocks(3));
+		sound = new Sound();
+		sound.play(0);
+		
+		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 	}
@@ -38,11 +44,15 @@ public class HW5 extends JFrame{
 		this.getContentPane().removeAll();
 		
 		if(state == 0) {
+			start_page = new StartPage(this);
 			this.add(start_page);
+			sound = new Sound();
+			sound.play(0);
 			start_page.setFocusable(true);
 			start_page.requestFocus();
 		}
 		else if(state == 1) {
+			sound.stop();
 			game_page = new BreakingBlocks(this);
 			this.add(game_page);
 			
@@ -63,4 +73,6 @@ public class HW5 extends JFrame{
 		revalidate();
 		repaint();
 	}
+	
+	
 }

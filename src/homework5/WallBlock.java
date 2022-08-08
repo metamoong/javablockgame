@@ -16,7 +16,7 @@ class WallBlock extends Block {
 boolean isCollide(GameObject o) {
 		
 		Ball b = (Ball) o;
-		if(b.y+b.r > y && b.y-b.r < y+h &&b.x+b.r > x && b.x-b.r <x+w	) {
+		if(b.y+b.r >= y && b.y-b.r <= y+h &&b.x+b.r >= x && b.x-b.r <=x+w) {
 			return true;
 		}
 		
